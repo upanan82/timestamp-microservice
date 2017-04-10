@@ -2,12 +2,6 @@ var express = require('express'),
     app = express(),
     path = require('path');
 
-// Listen port
-app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
-});
-
 // Include home page
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -124,3 +118,9 @@ function func(month) {
         default: return '';
     }
 }
+
+// Listen port
+app.set('port', (process.env.PORT || 5000));
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
